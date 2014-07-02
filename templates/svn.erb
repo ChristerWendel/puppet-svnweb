@@ -1,0 +1,23 @@
+# Disable compression
+SVNCompressionLevel 0
+
+# Caching
+SVNInMemoryCacheSize 65536
+
+<Location /svn>
+  # Global configuration
+  DAV svn
+  SVNParentPath <%= @svnroot %>
+  SVNListParentPath on
+
+  # Styling
+  SVNIndexXSLT "/repos-web/view/repos.xsl"
+
+  # Support large files
+  LimitXMLRequestBody 0
+  LimitRequestBody 0
+
+  # Caching
+  SVNCacheFullTexts On
+  SVNCacheTextDeltas On
+</Location>
